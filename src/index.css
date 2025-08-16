@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos para la card/imagenes */
+.product-image { @apply w-full h-40 object-contain bg-gray-100 rounded-md; }
+
+
