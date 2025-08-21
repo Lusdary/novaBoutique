@@ -29,7 +29,7 @@ export default function App() {
           <Route path="/" element={<ProductList />} />
           <Route path="/detalle/:id" element={<ProductDetail />} />
           <Route path="/crear" element={<ProductForm />} />
-          <Route path="/editar/:id" element={<ProductForm />} />
+          <Route path="/edit/:id" element={<ProductForm />} />
         </Routes>
       </main>
     </div>
