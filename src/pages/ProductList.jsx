@@ -92,15 +92,15 @@ export default function ProductList() {
   /* Genera la lista de productos con filtros y paginación */
   /* Muestra mensajes de error y estados de carga */
   return (
-    <div className="max-w-5xl mx-auto p-4">
-      <h1 className="text-2xl mb-4">Productos</h1>
+    <div className="max-w-5xl mx-auto p-4 sm:p-6">
+      <h1 className="text-2xl sm:text-3xl mb-4 text-center sm:text-left">Productos</h1>
 
       {/* Filtros */}
-      <div className="flex items-start gap-4 mb-4">
+      <div className="flex flex-col sm:flex-row items-start gap-4 mb-4">
         <SearchBar value={search} onChange={setSearch} />
-        <div className="flex gap-2">
+        <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
           <select
-            className="border rounded p-2"
+            className="border rounded p-2 w-full sm:w-auto"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
           >
@@ -112,19 +112,19 @@ export default function ProductList() {
             ))}
           </select>
           <input
-            className="border rounded p-2 w-24"
+            className="border rounded p-2 w-full sm:w-24"
             placeholder="min"
             value={minP}
             onChange={(e) => setMinP(e.target.value)}
           />
           <input
-            className="border rounded p-2 w-24"
+            className="border rounded p-2 w-full sm:w-24"
             placeholder="max"
             value={maxP}
             onChange={(e) => setMaxP(e.target.value)}
           />
           <button
-            className="bg-amber-200 px-3 rounded"
+            className="bg-amber-200 px-3 py-2 rounded w-full sm:w-auto"
             onClick={() => {
               setMinP("");
               setMaxP("");
@@ -137,16 +137,16 @@ export default function ProductList() {
         </div>
       </div>
 
-      {loading && <div className="p-4 bg-yellow-50 rounded">Cargando...</div>}
+      {loading && <div className="p-4 bg-yellow-50 rounded text-center sm:text-left">Cargando...</div>}
       {error && (
-        <div className="p-4 bg-red-50 text-red-700 rounded">{error}</div>
+        <div className="p-4 bg-red-50 text-red-700 rounded text-center sm:text-left">{error}</div>
       )}
       {!loading && filtered.length === 0 && (
-        <div className="p-4 bg-gray-100 rounded">No hay productos</div>
+        <div className="p-4 bg-gray-100 rounded text-center sm:text-left">No hay productos</div>
       )}
 
       {/* Lista de productos */}
-      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {pageItems.map((p) => (
           <ProductCard key={p.id} product={p} onDelete={() => handleDelete(p.id)} />
         ))}
